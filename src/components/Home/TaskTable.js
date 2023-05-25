@@ -246,7 +246,7 @@ export default function TaskTable() {
                     </Box>
                   </StyledTableCell>
                 </StyledTableRow>
-              ) : (
+              ) : rows?.length ? (
                 <>
                   {rows?.slice(0, rowsPerPage)?.map((row, index) => {
                     return (
@@ -313,6 +313,16 @@ export default function TaskTable() {
                     );
                   })}
                 </>
+              ) : (
+                <StyledTableRow
+                  style={{
+                    height: 53,
+                  }}
+                >
+                  <StyledTableCell colSpan={4} align="center">
+                    Tasks not available.
+                  </StyledTableCell>
+                </StyledTableRow>
               )}
             </TableBody>
           </Table>
